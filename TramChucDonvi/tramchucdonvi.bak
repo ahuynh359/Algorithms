@@ -11,7 +11,7 @@ BEGIN
         writeln('Chu so hang tram la:',a div 100);
         a:=a mod 100;
         writeln('Chu so hang chuc la:',a div 10);
-        writeln('Chu so hang don vi la', a mod 10);
+        writeln('Chu so hang don vi la:', a mod 10);
 
         readln
 
