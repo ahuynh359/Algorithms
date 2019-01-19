@@ -1,0 +1,49 @@
+program DayConCoTongLonNhat;
+uses crt;
+type mang = array[1..100] of integer;
+var a:mang;
+    i,n,j,amMax,tong,s,ktd,kta,sDuong,max:integer;
+
+BEGIN
+        clrscr;
+
+        readln(n);
+
+        for i:=1 to n do
+        begin
+                write('Nhap a[',i,']');readln(a[i]);
+
+        end;
+
+
+
+        for i:=1 to n do
+        begin
+                inc(tong,a[i]);
+
+                if(tong < 0) then tong:=0 else
+                if tong > max then max:=tong;
+
+                //Neu la so duong
+                if(a[i] >=0) then
+                begin
+                        inc(sDuong,a[i]);
+                        ktd:=1;
+                end else
+                //Neu la so am
+                begin
+                        if(a[i] > amMax) then amMax:=a[i];
+                        kta:=1;
+
+                end;
+
+
+        end;
+
+        if kta = 1 then write('Gia tri lon nhat lien tiep la:',amMax) else
+        if(kta = 0) then write('Gia tri lon nhat lien tiep la:',sDuong) else
+        write(s ,' ',sDuong);
+
+
+        readln
+END.
