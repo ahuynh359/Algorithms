@@ -30,12 +30,11 @@ BEGIN
 
         for i:=1 to n do a[i]:=i;
         repeat
-                for i:=1 to n do write(a[i]:3);
-                writeln();
+                for i:=1 to n do write(f,a[i]:3);
+                writeln(f);
 
                 i:=n-1;
-                while (a[i] > a[i+1])
-                and (i >0 ) do dec(i);
+                while (i>0) and (a[i] > a[i+1]) do dec(i);
 
                 if(i>0) then
                 begin
