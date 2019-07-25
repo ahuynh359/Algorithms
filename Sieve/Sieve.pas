@@ -29,22 +29,16 @@ BEGIN
         while (i <= trunc(sqrt(n))) do
         begin
 
-                j:=i+1;
-                while(prime[j] = false) do inc(j); //Tim so ngto khong false
 
-
+                while(prime[i] = false) do inc(i); //Tim so ngto khong false
                 boi:=2;
-
-                while(j*boi <= n) do
+                while(i*boi <= trunc(sqrt(n))) do
                 begin
-                        prime[j*boi]:=false;
+                        prime[i*boi]:=false;
                         inc(boi);
 
                 end;
-
-
-                i:=j;
-
+                inc(i);
 
         end;
 
