@@ -9,35 +9,10 @@ const
 var
         f:text;
         prime:array[1..200000000] of boolean;
-        n,i:integer;
+        n,i,boi:integer;
 
 
 
-procedure isPrimeNumber();
-var
-        i,j,boi:integer;
-BEGIN
-        fillChar(prime,sizeOf(prime),true);
-        prime[1]:=false;
-
-        for i:=2 to n do
-        if(prime[i]) then
-        begin
-                j:=i+i;
-
-                while(j<=n) do
-                begin
-                        prime[j]:=false;
-                        inc(j);
-
-
-                end;
-
-        end;
-
-
-
-END;
 
 BEGIN
         clrscr;
@@ -48,8 +23,26 @@ BEGIN
         read(f,n);
         close(f);
 
-      isPrimeNumber();
 
+
+        fillChar(prime,sizeOf(prime),true);
+        prime[1]:=false;
+
+        i:=2;
+        while (i <= trunc(sqrt(n)))  do
+        begin
+                while (prime[i] = false) do inc(i);
+
+                boi:=2;
+                while(i*boi <= N ) do
+                begin
+                        prime[i*boi]:=false;
+                        inc(boi);
+
+                end;
+                inc(i);
+
+        end;
 
 
 
