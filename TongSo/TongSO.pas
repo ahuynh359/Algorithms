@@ -6,7 +6,7 @@ const
         type mang = array[1..100] of integer;
 var
         a:mang;
-        i,j,n,b:integer;
+        i,j,n,b,tong:integer;
         f:text;
 
 procedure QUickSort(var a:mang;left,right:integer);
@@ -29,9 +29,11 @@ BEGIN
                         a[i]:=a[j];
                         a[j]:=tam;
 
+                        inc(i); dec(j);
+
                 end;
 
-                inc(i); dec(j);
+
 
 
         until i > j;
@@ -50,11 +52,31 @@ BEGIN
                 for i:=1 to n do readln(f,a[i]);
         close(f);
 
-        for i:=1 to n do write(a[i]:3);
-        writeln;
         QuickSort(a,1,n);
 
-        for i:=1 to n do write(a[i]:3);
+        i:=1;
+
+
+        assign(f,OUTPUT);
+        rewrite(f);
+
+        while (a[i] > b)  and (i < n) do dec(i); //Bo cac so > b
+
+        if (i=0) then write(f,'Khong co so:') else
+                while ( tong < b) and( i < n) do
+                begin
+                        tong:=tong+a[i];
+                        inc(j);
+
+
+
+                end;
+
+
+                write(f,j);
+
+        close(f);
+
 
 
 
