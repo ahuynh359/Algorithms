@@ -1,5 +1,5 @@
-//Thuat toan sang so nguyen to tim so nguyen to < n cho truoc
-//Khoang 32700
+ {$B-}
+
 program Sieve;
 uses crt;
 const
@@ -8,38 +8,35 @@ const
 
 var
         f:text;
-        prime:array[1..200000000] of boolean;
-        n,i,boi:integer;
-
+        prime:array[1..200000] of boolean;
+        a,b,boi,i:longint;
 
 
 
 BEGIN
+
         clrscr;
 
 
         assign(f,INPUT);
         reset(f);
-        read(f,n);
+        read(f,a);  read(f,b);
         close(f);
 
-
-
-        fillChar(prime,sizeOf(prime),true);
-        prime[1]:=false;
-
+        for i:=2 to b do prime[i]:=true;
         i:=2;
-        while (i <= trunc(sqrt(n)))  do
-        begin
-                while (prime[i] = false) do inc(i);
 
+        while ( i <= trunc(sqrt(b))) do
+        begin
+                while(prime[i] = false) do inc(i);
                 boi:=2;
-                while(i*boi <= N ) do
+                while(i*boi <= b) do
                 begin
                         prime[i*boi]:=false;
                         inc(boi);
 
                 end;
+
                 inc(i);
 
         end;
@@ -50,8 +47,10 @@ BEGIN
         assign(f,OUTPUT);
         rewrite(f);
 
-        for i:=1 to n do
-        if (prime[i]) then writeln(f,i);
+        for i:=a to b do
+        if(prime[i] ) then writeln(f,i);
+
+
 
         close(f);
 
