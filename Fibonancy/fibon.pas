@@ -2,22 +2,17 @@ program Fibonacy;
 
 uses crt;
 var
-        a:array [1..100] of integer;
+        a:array [1..100] of qWord;
         n,i:integer;
 
-function So(n:integer):integer;
+procedure Fi;
 var
-        dem:integer;
+        i:integer;
 BEGIN
-        dem:=1;
-        while n > 0 do
-        begin
-                n:=n div 10;
-                inc(dem);
+       a[1]:=1;
+       a[2]:=1;
 
-        end;
-
-        So:=dem;
+       for i:=3 to n do a[i]:=a[i-1]+a[i-2];
 
 END;
 
@@ -26,17 +21,8 @@ BEGIN
 
         write('Nhap n:');readln(n);
 
-        a[1]:=1; a[2]:=1;
-
-        write(a[1]:3,a[2]:3);
-        for i:=3 to n do
-        begin
-                a[i]:=a[i-1]+a[i-2];
-                write(a[i]:So(a[i]));
-        end;
-
-
-
+        Fi;
+        write(a[n]);
         readln
 END.
 
