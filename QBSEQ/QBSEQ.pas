@@ -1,12 +1,12 @@
 program DayDaiNhatCoTongChiaHetChoK;
 uses crt;
 const
-        FI = 'QBSEQ\INP.txt';
-        FO = 'QBSEQ\OUT.txt';
+        FI = '';
+        FO = '';
 var
         a,b:array[1..1000] of integer;
         k:byte;
-        n,i,dem:integer;
+        n,i,dem,j,l:integer;
 procedure ReadData;
 var
         f:text;
@@ -35,6 +35,15 @@ BEGIN
 
 END;
 
+procedure Swap(var a,b:integer);
+var
+        t:integer;
+BEGIN
+        t:=a;
+        a:=b;
+        b:=t;
+END;
+
 procedure WriteData;
 var
         f:text;
@@ -46,12 +55,39 @@ BEGIN
         close(f);
 
 END;
+
 BEGIN
         clrscr;
 
         ReadData;
 
-        WriteData;
+
+        for i:=1 to n do
+        if (a[i] mod k = 0) then inc(dem) else
+        begin
+                inc(j);
+                b[j]:=a[i] mod k;
+
+        end;
+
+
+        //Sap xep
+           for i:=1 to j-1 do
+                for l:=i+1 to j do
+                if(b[i] > b[l]) then Swap(b[i],b[l]);
+
+
+        for i:=1 to (j div 2) do
+                if(b[i] + b[j-i+1] = k) then dem:=dem+2;
+
+        write(dem);
+
+
+
+
+
+
+      //  WriteData;
         readln
 
 END.

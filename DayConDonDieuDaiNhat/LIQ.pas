@@ -40,16 +40,14 @@ BEGIN
 
         ReadData;
 
-        dai[1]:=1;
+       for i:=2 to n do
+       begin
+        dai[i]:=1;
 
-        for i:=2 to n do
-        begin
-                max:=0;
-                for j:=1 to i-1 do
-                if ( a[i] > a[j]) and (dai[j] > max) then max:=dai[j];
-                dai[i]:=max+1;
+        for j:=1 to i-1 do
+                if(a[j] <= a[i]) and (dai[i] < dai[j]+1) then dai[i]:=dai[j]+1;
 
-        end;
+       end;
 
         WriteData;
 

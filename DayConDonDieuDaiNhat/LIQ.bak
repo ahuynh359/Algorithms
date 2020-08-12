@@ -2,8 +2,8 @@
 program LIQ;
 uses crt;
 const
-        FI = '';
-        FO = '';
+        FI = 'DayConDonDieuDaiNhat\INP.txt';
+        FO = 'DayConDonDieuDaiNhat\OUT.txt';
 var
         a,dai:array[1..1000] of integer;
         i,n,max,j,d,c:integer;
